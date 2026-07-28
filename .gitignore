@@ -1,0 +1,30 @@
+# Spring Boot
+backend/target/
+
+# Eclipse
+backend/.classpath
+backend/.project
+backend/.settings/
+
+# IntelliJ
+backend/.idea/
+
+# Maven
+backend/.mvn/wrapper/maven-wrapper.jar
+
+# Angular
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/cache/
+
+# Logs
+*.log
+
+# Windows
+Thumbs.db
+
+# Mac
+.DS_Store
+
+# Environment variables
+.env

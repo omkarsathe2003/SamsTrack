@@ -1,0 +1,98 @@
+/* Apply full-height gradient background */
+body, html {
+  min-height: 100vh; /* Ensure full viewport height */
+  background: linear-gradient(135deg, #6a11cb, #2575fc, #00c6ff);
+  background-size: 400% 400%; /* For animation */
+  animation: gradientAnimation 15s ease infinite; /* Smooth, slow animation */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevent scrollbars due to animation */
+}
+
+/* Keyframe animation for the background gradient */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Wrapper to center content */
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  padding: 20px; /* Add some padding for smaller screens */
+  box-sizing: border-box; /* Include padding in width/height */
+}
+
+/* Login Box Styling */
+.login-box {
+  background: rgba(255, 255, 255, 0.95); /* Slightly less transparency, more solid look */
+  padding: 40px; /* Increased padding */
+  border-radius: 15px; /* Softer rounded corners */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Deeper, softer shadow */
+  width: 100%;
+  max-width: 420px; /* Slightly wider max-width */
+  backdrop-filter: blur(8px); /* Frosted glass effect */
+  -webkit-backdrop-filter: blur(8px); /* For Safari */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
+  animation: fadeIn 1s ease-out forwards; /* Fade in animation for the box */
+}
+
+/* Keyframe animation for login box fade-in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Input Fields */
+.form-control {
+  border-radius: 8px; /* Softer rounded corners */
+  border: 1px solid #ccc; /* Clearer border */
+  padding: 12px 15px; /* More comfortable padding */
+  width: calc(100% - 30px); /* Account for padding */
+  margin-bottom: 20px; /* More space between inputs */
+  font-size: 1rem; /* Readable font size */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+.form-control:focus {
+  outline: none; /* Remove default outline */
+  border-color: #6a11cb; /* Highlight focus with primary color */
+  box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.2); /* Soft glow on focus */
+}
+
+/* Button Styling */
+.btn-primary {
+  background: linear-gradient(45deg, #6a11cb, #2575fc); /* Gradient button */
+  border: none;
+  border-radius: 8px; /* Softer rounded corners */
+  padding: 12px 25px; /* More generous padding */
+  font-weight: 600; /* Slightly bolder */
+  font-size: 1.1rem; /* Larger font size */
+  color: #fff; /* White text for contrast */
+  cursor: pointer; /* Indicate interactivity */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Subtle button shadow */
+  width: 100%; /* Make button full width */
+}
+
+.btn-primary:hover {
+  background: linear-gradient(45deg, #2575fc, #00c6ff); /* Change gradient on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* More pronounced shadow on hover */
+}
+
+.btn-primary:active {
+  transform: translateY(0); /* Press down effect */
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); /* Reduced shadow on click */
+}

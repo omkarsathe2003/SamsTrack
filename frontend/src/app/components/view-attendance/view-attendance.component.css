@@ -1,0 +1,248 @@
+/* Global Styles: Full-screen gradient background with subtle animation and modern font */
+html, body {
+  /* Richer, more dynamic gradient with subtle animation */
+  background: linear-gradient(135deg, #667eea, #764ba2, #5e35b1); /* Added a third color for more depth */
+  background-size: 300% 300%; /* For animation */
+  animation: backgroundPan 20s ease infinite alternate; /* Slow, smooth panning animation */
+  font-family: 'Poppins', sans-serif; /* Modern, clean, and highly readable font (requires linking from Google Fonts) */
+  min-height: 100vh; /* Ensures it covers the full viewport height */
+  display: flex; /* Use flexbox for easy centering/alignment of content */
+  justify-content: center; /* Center content horizontally */
+  align-items: flex-start; /* Align content to the top initially */
+  padding-top: 50px; /* Add padding to the top for content */
+  padding-bottom: 50px; /* Add padding to the bottom for content to breathe */
+  margin: 0; /* Remove default body margin */
+  box-sizing: border-box; /* Include padding in element's total width and height */
+  overflow-x: hidden; /* Prevent horizontal scrollbars that might appear from animation */
+}
+
+/* Keyframe animation for the background gradient */
+@keyframes backgroundPan {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Main Content Container */
+.container {
+  margin-top: 0; /* Remove default margin-top as padding-top is now on body */
+  width: 95%; /* Make container slightly wider */
+  max-width: 1000px; /* Increased max-width for more content space */
+  background: rgba(255, 255, 255, 0.98); /* Almost opaque white background for better clarity */
+  padding: 40px; /* More generous padding inside the container */
+  border-radius: 18px; /* Softer, more modern rounded corners */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35); /* Deeper, more noticeable shadow */
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
+  border: 1px solid rgba(255, 255, 255, 0.4); /* Subtle white border */
+  animation: fadeInDown 0.8s ease-out forwards; /* Fade in from top animation */
+  opacity: 0; /* Start hidden for animation */
+  transform: translateY(-20px);
+}
+
+/* Keyframe animation for container fade-in */
+@keyframes fadeInDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Form Label Styling */
+.form-label {
+  font-weight: 600; /* Bolder font weight for better emphasis */
+  color: #333; /* Darker color for better contrast */
+  font-size: 1.1rem; /* Slightly larger font size for readability */
+  margin-bottom: 8px; /* Space below label */
+  display: block; /* Ensures label takes full width and stacks correctly */
+  text-align: left; /* Align label text to the left */
+}
+
+/* Table Styling */
+.table {
+  margin-top: 30px; /* More space above the table for better separation */
+  width: 100%; /* Ensure table takes full width of its container */
+  border-collapse: separate; /* Allows border-radius on cells */
+  border-spacing: 0; /* Removes space between cells */
+  border-radius: 12px; /* Rounded corners for the entire table */
+  overflow: hidden; /* Ensures contents respect border-radius */
+  background-color: white; /* Ensure consistent background for table body */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for the table itself */
+}
+
+.table th {
+  background: linear-gradient(90deg, #343a40, #5a6268); /* Gradient for table header */
+  color: white;
+  text-align: center;
+  padding: 15px 10px; /* More padding for header cells */
+  font-weight: 600; /* Bolder header text */
+  font-size: 1.1rem; /* Larger header font size */
+}
+
+.table td {
+  text-align: center;
+  padding: 12px 10px; /* Consistent padding for data cells */
+  border-bottom: 1px solid #eee; /* Subtle bottom border for rows */
+}
+
+/* Remove bottom border for the last row in the table body */
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Table row hover effect */
+.table tbody tr:hover {
+  background-color: rgba(118, 75, 162, 0.08); /* Light hover background, matching gradient colors */
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out; /* Smooth transition */
+  transform: scale(1.005); /* Very subtle zoom effect on hover */
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05); /* Light shadow on hover */
+}
+
+/* Specific styling for table corners to ensure rounded edges */
+.table thead th:first-child {
+  border-top-left-radius: 12px;
+}
+.table thead th:last-child {
+  border-top-right-radius: 12px;
+}
+.table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 12px;
+}
+.table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 12px;
+}
+
+/* Input and Select Field Styling */
+select, input[type="date"], input[type="text"], input[type="number"] { /* Added common input types */
+  border-radius: 8px; /* Softer rounded corners */
+  border: 1px solid #ced4da;
+  padding: 10px 15px; /* More comfortable padding */
+  font-size: 1rem; /* Readable font size */
+  width: 100%; /* Make them full width within their parent */
+  max-width: 300px; /* Example max-width for single inputs in a row */
+  box-sizing: border-box; /* Include padding in element's total width */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for focus */
+  margin-bottom: 15px; /* Space below inputs */
+}
+
+/* Focus state for input and select fields */
+select:focus, input[type="date"]:focus, input[type="text"]:focus, input[type="number"]:focus {
+  outline: none; /* Remove default outline */
+  border-color: #667eea; /* Highlight focus with primary color */
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.2); /* Soft glow on focus */
+}
+
+/* General form group spacing (if you use a class like .form-group) */
+.form-group {
+  margin-bottom: 20px; /* More space between form groups */
+}
+
+
+/* Responsive adjustments for various screen sizes */
+@media (max-width: 768px) {
+  html, body {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .container {
+    padding: 25px;
+    width: 98%; /* Allow container to be wider on smaller screens */
+    border-radius: 15px;
+  }
+
+  .form-label {
+    font-size: 1rem;
+  }
+
+  select, input[type="date"], input[type="text"], input[type="number"] {
+    padding: 8px 12px;
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+  }
+
+  .table th, .table td {
+    padding: 10px 8px;
+    font-size: 0.9rem;
+  }
+
+  .table th {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  html, body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .container {
+    padding: 20px;
+    border-radius: 10px;
+  }
+  .form-label {
+    font-size: 0.95rem;
+  }
+  select, input[type="date"], input[type="text"], input[type="number"] {
+    font-size: 0.9rem;
+    padding: 6px 10px;
+  }
+  /* Make table scrollable horizontally on very small screens if content overflows */
+  .table {
+    min-width: 450px; /* Ensure table doesn't collapse too much */
+    overflow-x: auto; /* Enable horizontal scroll for table */
+    -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS */
+  }
+  .table th, .table td {
+    font-size: 0.85rem;
+  }
+}
+
+
+
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 50%;
+  max-width: 600px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.student-card {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}

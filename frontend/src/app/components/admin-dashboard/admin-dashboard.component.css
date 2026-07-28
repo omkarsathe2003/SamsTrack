@@ -1,0 +1,166 @@
+/* Global Styles: Full-page gradient background with modern typography */
+body, html {
+  height: 100%; /* Ensure full viewport height */
+  margin: 0; /* Remove default body margin */
+  /* Enhanced gradient with a slightly deeper blue transition */
+  background: linear-gradient(135deg, #1e3c72, #2a5298, #1a71c2, #4a90e2); /* Added another blue shade for more dynamic transition */
+  background-size: 400% 400%; /* For subtle animation */
+  animation: backgroundPan 25s ease infinite alternate; /* Slower, smoother panning animation */
+  font-family: 'Inter', sans-serif; /* Modern, clean, and highly readable font (recommend linking from Google Fonts) */
+  color: #ffffff; /* Pure white text for strong contrast against the blue gradient */
+  display: flex; /* Use flexbox for centering content */
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+  text-align: center; /* Center-align text within the flex container */
+  overflow-x: hidden; /* Prevent horizontal scrollbars from background animation */
+}
+
+/* Keyframe animation for the background gradient to pan smoothly */
+@keyframes backgroundPan {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Wrapper to constrain content width and add padding */
+.dashboard-wrapper {
+  width: 100%; /* Full width within its parent */
+  max-width: 1400px; /* Increased max-width for wider screens */
+  padding: 80px 30px; /* More generous padding top/bottom and side padding */
+  box-sizing: border-box; /* Include padding in the element's total width and height */
+  opacity: 0; /* Start hidden for entrance animation */
+  transform: translateY(20px); /* Start slightly below for slide-up effect */
+  animation: fadeInRise 1s ease-out 0.3s forwards; /* Fade in and rise animation */
+}
+
+/* Keyframe animation for content fade in and slight rise */
+@keyframes fadeInRise {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Heading Styling */
+.dashboard-title {
+  font-size: 3.5rem; /* Larger, more impactful heading */
+  font-weight: 700; /* Bolder font weight */
+  margin-bottom: 20px; /* More space below the title */
+  line-height: 1.2; /* Tighter line height for large text */
+  text-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); /* Deeper text shadow for prominence */
+  letter-spacing: -0.03em; /* Slightly tighter letter spacing for modern look */
+}
+
+/* Paragraph Styling */
+.dashboard-description {
+  font-size: 1.35rem; /* Slightly larger and more readable description */
+  max-width: 900px; /* Wider max-width for longer descriptions */
+  margin: 0 auto 50px; /* More space below the description */
+  line-height: 1.7; /* Increased line height for better readability */
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Subtle text shadow */
+  font-weight: 300; /* Lighter font weight for better contrast with title */
+}
+
+/* Image Container */
+.image-container {
+  width: 100%;
+  max-width: 1200px; /* Maintain existing max-width */
+  margin: auto; /* Center the image container */
+  animation: zoomIn 1s ease-out 0.8s forwards; /* Zoom in animation for the image */
+  opacity: 0; /* Start hidden for animation */
+  transform: scale(0.9); /* Start slightly scaled down */
+}
+
+/* Keyframe animation for image zoom in */
+@keyframes zoomIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.image-container img {
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  max-height: 550px; /* Slightly increased max-height */
+  border-radius: 15px; /* Softer, more modern rounded corners */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), /* Stronger, layered shadow for depth */
+              0 0 0 5px rgba(255, 255, 255, 0.1); /* Subtle white border effect via shadow */
+  object-fit: cover; /* Ensures image covers container while maintaining aspect ratio */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for potential hover effects */
+}
+
+/* Optional: Subtle hover effect for the image */
+.image-container img:hover {
+  transform: translateY(-5px) scale(1.01); /* Slight lift and zoom on hover */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6),
+              0 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+  .dashboard-wrapper {
+    padding: 60px 25px;
+  }
+}
+
+@media (max-width: 992px) {
+  .dashboard-title {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+  }
+
+  .dashboard-description {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    max-width: 700px;
+  }
+
+  .dashboard-wrapper {
+    padding: 50px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-title {
+    font-size: 2.2rem;
+  }
+
+  .dashboard-description {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    max-width: 600px;
+  }
+
+  .dashboard-wrapper {
+    padding: 40px 15px;
+  }
+
+  .image-container img {
+    max-height: 400px;
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .dashboard-title {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+
+  .dashboard-description {
+    font-size: 1rem;
+    margin-bottom: 25px;
+    max-width: 90%; /* Allow description to take more width on small screens */
+    padding: 0 10px; /* Add slight side padding to text */
+  }
+
+  .dashboard-wrapper {
+    padding: 30px 10px;
+  }
+
+  .image-container img {
+    max-height: 300px;
+    border-radius: 10px;
+  }
+}

@@ -1,0 +1,137 @@
+body {
+  /* Enhanced gradient with a subtle animation */
+  background: linear-gradient(90deg, #b387e2, #5a1fce, #3c096c); /* Added a deeper third color */
+  background-size: 300% 300%; /* For animation */
+  animation: gradientPulse 10s ease infinite alternate; /* Smooth, pulsing animation */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto', sans-serif; /* Modern, clean font */
+  margin: 0;
+  padding: 20px; /* Add some padding for smaller screens */
+  box-sizing: border-box; /* Include padding in element's total width and height */
+  overflow: hidden; /* Prevent scrollbars from animation */
+}
+
+/* Keyframe animation for the background gradient */
+@keyframes gradientPulse {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Form Container - Larger and Centered */
+.form-container {
+  width: 100%;
+  max-width: 550px; /* Increased max-width significantly for a larger form */
+  padding: 30px; /* More padding inside the container */
+  /* Added a subtle initial animation for the form to appear */
+  animation: fadeInScale 0.8s ease-out forwards;
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+/* Keyframe for form appearance animation */
+@keyframes fadeInScale {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Card Styling - More prominent and elegant */
+.card {
+  background-color: rgba(255, 255, 255, 0.98); /* Almost opaque white background */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35); /* Deeper, more noticeable shadow */
+  border-radius: 15px; /* Softer, more modern rounded corners */
+  overflow: hidden; /* Ensures header/body corners are also rounded */
+  backdrop-filter: blur(8px); /* Subtle frosted glass effect */
+  -webkit-backdrop-filter: blur(8px); /* For Safari */
+  border: 1px solid rgba(255, 255, 255, 0.4); /* Light border for definition */
+}
+
+/* Card Header - More defined and vibrant */
+.card-header {
+  background: linear-gradient(90deg, #2575fc, #6a11cb); /* Gradient for the header */
+  color: white;
+  font-weight: 700; /* Bolder font weight */
+  padding: 20px 30px; /* More generous padding */
+  font-size: 1.6rem; /* Larger font size for the header */
+  text-align: center; /* Center align header text */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Subtle separator */
+  letter-spacing: 0.05em; /* Slightly increased letter spacing */
+}
+
+/* Card Body - More spacious */
+.card-body {
+  padding: 35px 30px; /* Increased padding inside the body */
+}
+
+/* Form Control (Input fields - assuming you have these classes) */
+.form-control {
+  border: 1px solid #ccc;
+  border-radius: 8px; /* Slightly more rounded corners */
+  padding: 12px 15px; /* More internal padding for text */
+  font-size: 1.1rem; /* Larger font size within inputs */
+  width: calc(100% - 30px); /* Adjust for padding */
+  margin-bottom: 20px; /* More space between inputs */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #5a1fce; /* Focus highlight */
+  box-shadow: 0 0 0 4px rgba(90, 31, 206, 0.2); /* Soft glow on focus */
+}
+
+/* Button Styling - More prominent and interactive */
+.btn-primary {
+  background: linear-gradient(45deg, #6a11cb, #2575fc); /* Gradient button */
+  border: none;
+  border-radius: 8px; /* Matching rounded corners */
+  padding: 14px 30px; /* More generous padding */
+  font-weight: 600; /* Bolder text */
+  font-size: 1.2rem; /* Larger font size */
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Smooth transitions for all effects */
+  width: 100%; /* Make button full width */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* Deeper shadow */
+}
+
+.btn-primary:hover {
+  background: linear-gradient(45deg, #2575fc, #00c6ff); /* Change gradient on hover */
+  transform: translateY(-3px); /* Lift effect */
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35); /* More pronounced shadow on hover */
+}
+
+.btn-primary:active {
+  transform: translateY(0); /* Press down effect */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Reduced shadow on click */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .form-container {
+    padding: 15px; /* Reduce padding on smaller screens */
+  }
+
+  .card-header {
+    font-size: 1.3rem; /* Adjust header size */
+    padding: 15px 20px;
+  }
+
+  .card-body {
+    padding: 25px 20px; /* Adjust body padding */
+  }
+
+  .form-control {
+    font-size: 1rem; /* Adjust input font size */
+    padding: 10px 12px;
+  }
+
+  .btn-primary {
+    font-size: 1.1rem; /* Adjust button font size */
+    padding: 12px 25px;
+  }
+}

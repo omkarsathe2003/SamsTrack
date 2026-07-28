@@ -1,0 +1,233 @@
+/* Full-screen gradient background with subtle animation */
+body {
+  background: linear-gradient(135deg, #4a90e2, #14549e, #0a3a78); /* Added a third, deeper blue for more depth */
+  background-size: 300% 300%; /* For animation */
+  animation: backgroundWave 15s ease infinite alternate; /* Smooth, gentle wave animation */
+  font-family: 'Roboto', sans-serif; /* Modern and readable font */
+  min-height: 100vh; /* Ensures it covers the full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 20px; /* Add some padding for smaller screens */
+  box-sizing: border-box; /* Include padding in element's total width and height */
+  overflow: hidden; /* Prevent scrollbars from animation */
+}
+
+/* Keyframe animation for the background gradient */
+@keyframes backgroundWave {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Attendance Container - More prominent and elegant */
+.attendance-container {
+  width: 90%; /* Increased width for more space */
+  max-width: 700px; /* Wider max-width to accommodate more content clearly */
+  background: rgba(255, 255, 255, 0.98); /* Almost opaque white background for better clarity */
+  padding: 30px; /* More generous padding inside the container */
+  border-radius: 18px; /* Softer, more modern rounded corners */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35); /* Deeper, more noticeable shadow */
+  text-align: center;
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
+  border: 1px solid rgba(255, 255, 255, 0.4); /* Subtle white border */
+  animation: fadeInZoom 0.8s ease-out forwards; /* Fade in and subtle zoom animation */
+  opacity: 0; /* Start hidden for animation */
+  transform: scale(0.95);
+}
+
+/* Keyframe animation for container appearance */
+@keyframes fadeInZoom {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Heading Styling (assuming an h1 or h2 within the container) */
+.attendance-container h2 {
+  font-size: 2.8rem; /* Larger, more impactful heading */
+  font-weight: 700; /* Bolder */
+  color: #333;
+  margin-bottom: 25px; /* More space below the heading */
+  letter-spacing: -0.03em; /* Slightly tighter letter spacing for a modern feel */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
+}
+
+/* Table Container - Improved spacing and handling */
+.table-container {
+  margin-top: 25px; /* More space above the table */
+  width: 100%;
+  overflow-x: auto; /* Ensures horizontal scrolling for narrow screens */
+  border-radius: 12px; /* Consistent rounded corners */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for the table itself */
+}
+
+/* Centering Table - Applying modern table styles */
+.table {
+  width: 100%;
+  border-collapse: separate; /* Allows border-radius on cells */
+  border-spacing: 0; /* Removes space between cells */
+  border-radius: 12px; /* Rounded corners for the entire table */
+  overflow: hidden; /* Ensures contents respect border-radius */
+  background-color: white; /* Ensure consistent background for table body */
+}
+
+/* Table Header - Vibrant and clear */
+.table thead {
+  background: linear-gradient(90deg, #14549e, #4a90e2); /* Gradient for table header */
+  color: white;
+  font-weight: 600; /* Slightly less bold than heading, but prominent */
+  font-size: 1.1rem; /* Slightly larger header text */
+}
+
+/* Table Rows and Cells - Clean and interactive */
+.table tbody tr {
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out; /* Smooth transition */
+}
+
+.table tbody tr:hover {
+  background: rgba(74, 144, 226, 0.1); /* Light blue hover background from primary color */
+  transform: scale(1.005); /* Very subtle zoom effect on hover */
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08); /* Light shadow on hover */
+}
+
+th, td {
+  padding: 15px 10px; /* More padding for better spacing */
+  vertical-align: middle !important;
+  text-align: center !important;
+  border-bottom: 1px solid #eee; /* Subtle bottom border for rows */
+}
+
+/* Specific styling for table corners */
+.table thead th:first-child {
+  border-top-left-radius: 12px;
+}
+.table thead th:last-child {
+  border-top-right-radius: 12px;
+}
+.table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 12px;
+}
+.table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 12px;
+}
+
+/* Checkbox Styling - Modernized */
+input[type="checkbox"] {
+  width: 22px; /* Slightly larger checkbox */
+  height: 22px;
+  cursor: pointer;
+  -webkit-appearance: none; /* Hide default checkbox */
+  -moz-appearance: none;
+  appearance: none;
+  border: 2px solid #4a90e2; /* Custom border color */
+  border-radius: 4px; /* Slightly rounded corners */
+  background-color: #fff;
+  display: inline-block;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+}
+
+input[type="checkbox"]:checked {
+  background-color: #4a90e2; /* Fill with primary color when checked */
+  border-color: #4a90e2;
+}
+
+input[type="checkbox"]:checked::after {
+  content: '\2713'; /* Checkmark symbol */
+  font-size: 16px;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+}
+
+input[type="checkbox"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.3); /* Glow on focus */
+}
+
+/* Button Styling - Vibrant and interactive */
+.btn-primary {
+  background: linear-gradient(45deg, #2575fc, #4a90e2); /* Gradient button */
+  border: none;
+  border-radius: 8px; /* Softer rounded corners */
+  padding: 12px 25px; /* More generous padding */
+  font-weight: 600; /* Bolder text */
+  font-size: 1.1rem; /* Larger font size */
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Smooth transitions for all effects */
+  margin-top: 30px; /* Space above the button */
+  width: auto; /* Allow button to size based on content */
+  min-width: 150px; /* Minimum width for consistency */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* Deeper shadow */
+}
+
+.btn-primary:hover {
+  background: linear-gradient(45deg, #1e5bcc, #14549e); /* Darker gradient on hover */
+  transform: translateY(-3px); /* Lift effect */
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35); /* More pronounced shadow on hover */
+}
+
+.btn-primary:active {
+  transform: translateY(0); /* Press down effect */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Reduced shadow on click */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .attendance-container {
+    padding: 25px 20px;
+    width: 95%;
+    border-radius: 12px;
+  }
+
+  .attendance-container h2 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+  }
+
+  th, td {
+    padding: 10px 8px; /* Reduce cell padding */
+    font-size: 0.9rem; /* Smaller text in cells */
+  }
+
+  input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+  }
+
+  input[type="checkbox"]:checked::after {
+    font-size: 14px;
+  }
+
+  .btn-primary {
+    padding: 10px 20px;
+    font-size: 1rem;
+    min-width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .attendance-container {
+    padding: 20px 15px;
+  }
+
+  .attendance-container h2 {
+    font-size: 1.8rem;
+  }
+
+  /* For very small screens, ensure table content doesn't break */
+  .table-container {
+    overflow-x: auto; /* Re-emphasize horizontal scroll */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  }
+  .table {
+    min-width: 450px; /* Ensure table doesn't shrink too much */
+  }
+}

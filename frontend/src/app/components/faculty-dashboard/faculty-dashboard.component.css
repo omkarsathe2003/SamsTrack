@@ -1,0 +1,140 @@
+/* Apply Enhanced Gradient Background */
+body {
+  /* Softer, more dynamic gradient with subtle animation */
+  background: linear-gradient(135deg, #6a11cb, #2575fc, #00c6ff);
+  background-size: 400% 400%; /* For animation */
+  animation: backgroundShift 15s ease infinite alternate; /* Smooth, continuous shift */
+  color: #f0f8ff; /* Slightly off-white for better contrast and softer look */
+  font-family: 'Poppins', sans-serif; /* Modern, readable font */
+  margin: 0;
+  padding: 0;
+  min-height: 100vh; /* Ensure full viewport height */
+  overflow-x: hidden; /* Prevent horizontal scrollbar from animation */
+  display: flex; /* Use flexbox for body to naturally center content if needed */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Keyframe animation for the background gradient */
+@keyframes backgroundShift {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Dashboard Wrapper - Centering and Structure */
+.dashboard-wrapper {
+  padding: 40px 20px; /* More generous padding, especially on top/bottom */
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensure it takes full height */
+  width: 100%; /* Full width */
+  max-width: 1200px; /* Constrain content width for better readability */
+  margin: 0 auto; /* Center the wrapper itself */
+  text-align: center; /* Center text within the wrapper */
+  box-sizing: border-box; /* Include padding in width */
+}
+
+/* Heading Styling */
+.dashboard-title {
+  font-size: 3.8rem; /* Larger, more impactful heading */
+  font-weight: 700; /* Bolder */
+  margin-bottom: 25px; /* More space below heading */
+  line-height: 1.2;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4); /* Subtle text shadow for depth */
+  letter-spacing: -0.03em; /* Slightly tighter letter spacing for modern feel */
+  animation: textFadeInUp 1s ease-out forwards; /* Fade in from bottom animation */
+  opacity: 0; /* Start hidden for animation */
+  transform: translateY(20px);
+}
+
+/* Keyframe for text fade-in animation */
+@keyframes textFadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Paragraph Styling */
+.dashboard-description {
+  font-size: 1.35rem; /* Slightly larger, more inviting text */
+  max-width: 850px; /* Wider for longer lines, but still constrained */
+  margin: 0 auto 40px; /* More space below description */
+  line-height: 1.7; /* Increased line height for readability */
+  opacity: 0.9; /* Slightly transparent for a softer look */
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  animation: textFadeIn 1.2s ease-out 0.3s forwards; /* Fade in after title */
+  opacity: 0; /* Start hidden for animation */
+}
+
+/* Keyframe for general fade-in animation */
+@keyframes textFadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Full-Width Image Styling */
+.image-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; /* Add some space above the image */
+  width: 100%; /* Ensure container takes full width */
+  animation: imageZoomIn 1.5s ease-out 0.6s forwards; /* Zoom in animation */
+  opacity: 0; /* Start hidden for animation */
+  transform: scale(0.95);
+}
+
+.image-container img {
+  max-width: 90%; /* Slightly reduce max-width to give some side padding */
+  height: auto;
+  border-radius: 15px; /* Softer, more modern rounded corners */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5); /* Deeper, more pronounced shadow */
+  border: 2px solid rgba(255, 255, 255, 0.2); /* Subtle white border */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth hover transition */
+}
+
+.image-container img:hover {
+  transform: scale(1.01); /* Slight zoom on hover */
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6); /* Even deeper shadow on hover */
+}
+
+/* Keyframe for image zoom-in animation */
+@keyframes imageZoomIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .dashboard-title {
+    font-size: 2.8rem; /* Adjust for smaller screens */
+  }
+
+  .dashboard-description {
+    font-size: 1.1rem; /* Adjust for smaller screens */
+  }
+
+  .dashboard-wrapper {
+    padding: 30px 15px; /* Adjust padding */
+  }
+
+  .image-container img {
+    max-width: 95%; /* Allow image to take more width on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-title {
+    font-size: 2rem;
+  }
+
+  .dashboard-description {
+    font-size: 1rem;
+  }
+}

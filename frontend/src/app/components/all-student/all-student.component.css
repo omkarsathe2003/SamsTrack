@@ -1,0 +1,204 @@
+body {
+  /* Dynamic gradient background with subtle animation */
+  background: linear-gradient(135deg, #6a11cb, #2575fc, #00c6ff); /* Added a third color for depth */
+  background-size: 400% 400%; /* For animation */
+  animation: backgroundPan 20s ease infinite alternate; /* Slow, smooth panning animation */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Inter', sans-serif; /* Modern, clean font for better readability */
+  margin: 0;
+  padding: 20px; /* Add padding for smaller viewports */
+  box-sizing: border-box; /* Include padding in element's total width and height */
+  overflow: hidden; /* Prevent scrollbars from animation */
+}
+
+/* Keyframe animation for the background gradient */
+@keyframes backgroundPan {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.table-container {
+  width: 95%; /* Slightly wider container */
+  max-width: 1000px; /* Increased max-width for larger tables */
+  margin: auto;
+  background: rgba(255, 255, 255, 0.98); /* Less transparency for better clarity */
+  padding: 30px; /* More generous padding */
+  border-radius: 18px; /* Softer, more modern rounded corners */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35); /* Deeper, more pronounced shadow */
+  overflow: hidden; /* Keep corners clean */
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
+  border: 1px solid rgba(255, 255, 255, 0.4); /* Subtle white border */
+  animation: fadeInDown 0.8s ease-out forwards; /* Fade in from top animation */
+  opacity: 0; /* Start hidden for animation */
+  transform: translateY(-20px);
+}
+
+/* Keyframe animation for table container fade-in */
+@keyframes fadeInDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px; /* More space below heading */
+  font-weight: 700; /* Bolder font weight */
+  color: #333;
+  font-size: 2.5rem; /* Larger heading */
+  letter-spacing: -0.02em; /* Slightly tighter letter spacing */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
+}
+
+.table {
+  width: 100%; /* Ensure table takes full width of its container */
+  border-collapse: separate; /* Allows border-radius on cells/rows */
+  border-spacing: 0; /* Removes space between cells */
+  border-radius: 12px; /* Rounded corners for the entire table */
+  overflow: hidden; /* Ensures contents respect border-radius */
+}
+
+.table thead {
+  background: linear-gradient(90deg, #2575fc, #6a11cb); /* Gradient for table header */
+  color: white;
+  font-weight: 600; /* Slightly less bold than heading, but still prominent */
+  font-size: 1.1rem; /* Slightly larger header text */
+}
+
+.table tbody tr {
+  background-color: white; /* Ensure consistent background for rows */
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out; /* Smooth transition */
+}
+
+.table tbody tr:hover {
+  background: rgba(106, 17, 203, 0.08); /* Lighter hover background, matching gradient colors */
+  transform: scale(1.01); /* Slight zoom effect on hover */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow on hover */
+  z-index: 1; /* Bring hovered row slightly to front */
+  position: relative; /* Needed for z-index */
+}
+
+th, td {
+  padding: 15px 10px; /* More padding for better spacing */
+  vertical-align: middle !important;
+  text-align: center !important;
+  border-bottom: 1px solid #eee; /* Subtle bottom border for rows */
+}
+
+/* Specific styling for table corners */
+.table thead th:first-child {
+  border-top-left-radius: 12px;
+}
+
+.table thead th:last-child {
+  border-top-right-radius: 12px;
+}
+
+.table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 12px;
+}
+
+.table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 12px;
+}
+
+/* Button Styling - Refined and consistent */
+.btn { /* General button style */
+  padding: 8px 15px;
+  border-radius: 6px; /* Slightly rounded for consistency */
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out; /* Smooth transitions */
+  display: inline-flex; /* Allows icon and text alignment */
+  align-items: center;
+  justify-content: center;
+  gap: 5px; /* Space between icon and text if used */
+}
+
+.btn-info {
+  background: #17a2b8; /* Original color */
+  border: none;
+  color: white;
+  box-shadow: 0 4px 10px rgba(23, 162, 184, 0.3); /* Soft shadow */
+}
+
+.btn-info:hover {
+  background: #138496; /* Darker on hover */
+  transform: translateY(-2px); /* Slight lift */
+  box-shadow: 0 6px 15px rgba(23, 162, 184, 0.4); /* More pronounced shadow */
+}
+
+.btn-info:active {
+  transform: translateY(0); /* Press down */
+  box-shadow: 0 2px 5px rgba(23, 162, 184, 0.2);
+}
+
+.btn-danger {
+  background: #dc3545; /* Original color */
+  border: none;
+  color: white;
+  box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3); /* Soft shadow */
+}
+
+.btn-danger:hover {
+  background: #c82333; /* Darker on hover */
+  transform: translateY(-2px); /* Slight lift */
+  box-shadow: 0 6px 15px rgba(220, 53, 69, 0.4); /* More pronounced shadow */
+}
+
+.btn-danger:active {
+  transform: translateY(0); /* Press down */
+  box-shadow: 0 2px 5px rgba(220, 53, 69, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .table-container {
+    padding: 20px 15px; /* Adjust padding */
+    width: 98%; /* Allow wider table on small screens */
+  }
+
+  h2 {
+    font-size: 2rem; /* Adjust heading size */
+    margin-bottom: 20px;
+  }
+
+  .table thead {
+    font-size: 0.95rem; /* Adjust header font size */
+  }
+
+  th, td {
+    padding: 12px 8px; /* Reduce cell padding */
+    font-size: 0.9rem; /* Smaller text in cells */
+  }
+
+  .btn {
+    padding: 6px 10px; /* Smaller buttons */
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .table-container {
+    padding: 15px 10px;
+    border-radius: 10px;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  /* Consider making table scrollable horizontally for very small screens */
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  }
+  .table-responsive .table {
+    min-width: 600px; /* Ensure table doesn't shrink too much */
+  }
+}

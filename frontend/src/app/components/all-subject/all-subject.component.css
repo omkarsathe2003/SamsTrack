@@ -1,0 +1,236 @@
+/* Gradient Background: Modernized and dynamic with subtle animation */
+body {
+  /* Richer, multi-stop blue gradient for more depth */
+  background: linear-gradient(135deg, #4a90e2, #2a64ad, #14549e, #0f3f7a);
+  background-size: 300% 300%; /* Larger background for panning animation */
+  animation: backgroundPan 25s ease infinite alternate; /* Slow, smooth panning animation */
+  font-family: 'Inter', sans-serif; /* Modern, clean, and highly readable font (recommend linking from Google Fonts) */
+  color: white; /* Ensure text on gradient is white */
+  min-height: 100vh; /* Ensure full viewport height */
+  margin: 0; /* Remove default body margin */
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center content horizontally */
+  justify-content: flex-start; /* Align content to the top */
+  padding: 40px 20px; /* Add overall page padding */
+  box-sizing: border-box; /* Include padding in element's total width and height */
+  overflow-x: hidden; /* Prevent horizontal scrollbars from background animation */
+}
+
+/* Keyframe animation for the background gradient to pan smoothly */
+@keyframes backgroundPan {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Page Title: More impactful, centered, and animated */
+.page-title {
+  font-size: 2.8rem; /* Larger, more impactful title */
+  font-weight: 700; /* Bolder font weight */
+  margin-bottom: 30px; /* More space below the title */
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Deeper text shadow for prominence */
+  letter-spacing: -0.02em; /* Slightly tighter letter spacing for modern look */
+  text-align: center; /* Ensure title is centered */
+  width: 100%; /* Take full width */
+  animation: fadeInDown 0.8s ease-out forwards; /* Fade in from top animation */
+  opacity: 0; /* Start hidden for animation */
+  transform: translateY(-20px); /* Start slightly above for slide-down effect */
+}
+
+/* Keyframe for title animation */
+@keyframes fadeInDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Table Wrapper: Sleek, translucent card with entrance animation */
+.table-responsive {
+  width: 100%; /* Ensure it takes full width to be truly responsive */
+  max-width: 1200px; /* Max width for larger screens */
+  background: rgba(255, 255, 255, 0.15); /* Slightly less transparent for better readability */
+  padding: 30px; /* More generous padding */
+  border-radius: 15px; /* Softer, more modern rounded corners */
+  backdrop-filter: blur(12px); /* Increased blur for more prominent frosted glass effect */
+  -webkit-backdrop-filter: blur(12px); /* For Safari */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4); /* Deeper, more pronounced shadow */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle white border for definition */
+  overflow-x: auto; /* Enable horizontal scrolling for tables on small screens */
+  -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS */
+  animation: fadeInScale 0.8s ease-out 0.3s forwards; /* Fade in and scale up animation */
+  opacity: 0; /* Start hidden for animation */
+  transform: scale(0.95); /* Start slightly scaled down */
+}
+
+/* Keyframe for table animation */
+@keyframes fadeInScale {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Table Styling: Clean, modern, and interactive */
+.table {
+  width: 100%; /* Ensure table fills its responsive container */
+  border-collapse: separate; /* Crucial for applying border-radius to cells */
+  border-spacing: 0; /* Removes space between cells */
+  color: white;
+  margin-bottom: 0; /* Remove default table margin-bottom */
+  font-size: 0.95rem; /* Slightly smaller font for table data */
+}
+
+.table th,
+.table td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 15px 10px; /* More padding for cells */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle white border between rows */
+}
+
+.table th {
+  font-weight: 600; /* Bolder header text */
+  font-size: 1.05rem; /* Slightly larger header font */
+  white-space: nowrap; /* Prevent headers from wrapping too early */
+}
+
+.table thead {
+  background-color: rgba(34, 34, 34, 0.8); /* Slightly transparent dark header */
+}
+
+/* Apply border-radius to header corners */
+.table thead th:first-child {
+  border-top-left-radius: 12px;
+}
+.table thead th:last-child {
+  border-top-right-radius: 12px;
+}
+
+/* Apply border-radius to last row's bottom corners */
+.table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 12px;
+}
+.table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 12px;
+}
+
+/* Remove bottom border for the last row's cells for a cleaner finish */
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Table row hover effect for interactivity */
+.table-hover tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.25); /* Slightly more opaque on hover */
+  transition: background-color 0.2s ease, transform 0.1s ease; /* Smooth transition */
+  transform: scale(1.005); /* Subtle scale effect */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Light shadow on hover */
+}
+
+/* Button Styling: More prominent and interactive */
+button {
+  margin: 5px; /* More space around buttons */
+  padding: 8px 15px; /* More comfortable padding */
+  border-radius: 6px; /* Slightly softer corners for buttons */
+  border: none;
+  font-size: 0.9rem; /* Standard font size for action buttons */
+  cursor: pointer;
+  transition: all 0.2s ease; /* Smooth transition for hover/active effects */
+  background-color: #4a90e2; /* Default button color from gradient */
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  background-color: #387ace; /* Slightly darker on hover */
+  transform: translateY(-2px); /* Slight lift on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+  transform: translateY(0); /* Press down effect */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Optional: Different button styles (example) */
+.btn-edit {
+  background-color: #ffc107; /* Vibrant Yellow */
+}
+.btn-edit:hover {
+  background-color: #e0a800;
+}
+
+.btn-delete {
+  background-color: #dc3545; /* Alert Red */
+}
+.btn-delete:hover {
+  background-color: #c82333;
+}
+
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .page-title {
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+  }
+  .table-responsive {
+    padding: 25px;
+  }
+  .table th,
+  .table td {
+    padding: 12px 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 30px 15px; /* Adjust body padding for smaller screens */
+  }
+  .page-title {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+  .table-responsive {
+    padding: 15px;
+    border-radius: 10px;
+  }
+  .table th,
+  .table td {
+    padding: 10px 5px;
+    font-size: 0.85rem;
+  }
+  .table th {
+    font-size: 0.95rem;
+  }
+  button {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    margin: 2px;
+  }
+}
+
+@media (max-width: 576px) {
+  body {
+    padding: 20px 10px;
+  }
+  .page-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+  .table-responsive {
+    padding: 10px;
+    border-radius: 8px;
+    /* On very small screens, min-width can prevent table content from squishing too much */
+    min-width: 450px; /* Adjust as needed based on your content for horizontal scroll */
+  }
+  .table th,
+  .table td {
+    font-size: 0.8rem;
+  }
+  button {
+    font-size: 0.75rem;
+    padding: 5px 8px;
+  }
+}

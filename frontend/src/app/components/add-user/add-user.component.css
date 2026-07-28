@@ -1,0 +1,174 @@
+/* Gradient Background: Modernized and smoother transition */
+body {
+  background: linear-gradient(135deg, #667eea, #764ba2, #5e35b1); /* Added a third color for more depth */
+  background-size: 300% 300%; /* For subtle animation */
+  animation: backgroundPan 25s ease infinite alternate; /* Slow, smooth panning animation */
+  font-family: 'Poppins', sans-serif; /* Modern, clean, highly readable font (recommend linking from Google Fonts) */
+  color: white;
+  min-height: 100vh; /* Ensure full viewport height */
+  margin: 0; /* Remove default body margin */
+  display: flex; /* Use flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  overflow-x: hidden; /* Prevent horizontal scrollbars from animation */
+}
+
+/* Keyframe animation for the background gradient */
+@keyframes backgroundPan {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Form Wrapper: Centering and padding */
+.add-user-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensures wrapper spans full height */
+  padding: 20px;
+  width: 100%; /* Ensure it takes full width to center .container */
+  box-sizing: border-box; /* Include padding in element's total width and height */
+}
+
+/* Form Container: Sleek, translucent card with entrance animation */
+.container {
+  max-width: 700px;
+  width: 100%; /* Make container responsive */
+  background: rgba(255, 255, 255, 0.15); /* Slightly less transparent for better readability */
+  padding: 40px; /* More generous padding */
+  border-radius: 15px; /* Softer, more modern rounded corners */
+  backdrop-filter: blur(15px); /* Increased blur for more prominent frosted glass effect */
+  -webkit-backdrop-filter: blur(15px); /* For Safari */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* Deeper, more pronounced shadow */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle white border for definition */
+  animation: fadeInScale 0.8s ease-out forwards; /* Fade in and scale up animation */
+  opacity: 0; /* Start hidden for animation */
+  transform: scale(0.9); /* Start slightly scaled down */
+  text-align: center; /* Center form title and possibly other elements */
+}
+
+/* Keyframe animation for container fade in and scale up */
+@keyframes fadeInScale {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Title Styling: More impactful and centered */
+.form-title {
+  font-size: 2.5rem; /* Larger and more impactful title */
+  font-weight: 700; /* Bolder font weight */
+  margin-bottom: 30px; /* More space below the title */
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle text shadow for depth */
+}
+
+/* Input Fields: Enhanced styling and focus feedback */
+.form-control,
+.form-select {
+  border-radius: 8px; /* Softer rounded corners */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle white border */
+  background: rgba(255, 255, 255, 0.08); /* Slightly more opaque background for input */
+  color: white; /* White text color for input */
+  padding: 12px 15px; /* More comfortable padding */
+  font-size: 1.05rem; /* Slightly larger font size */
+  width: 100%; /* Full width */
+  box-sizing: border-box; /* Include padding in width */
+  margin-bottom: 20px; /* More space between inputs */
+  transition: all 0.3s ease; /* Smooth transition for hover and focus */
+}
+
+/* Placeholder color for inputs */
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+.form-select option {
+  color: #333; /* Default option text color for better contrast in dropdown */
+}
+
+/* Focus state for input fields */
+.form-control:focus,
+.form-select:focus {
+  outline: none; /* Remove default outline */
+  border-color: #ffc107; /* Highlight with a vibrant yellow color */
+  box-shadow: 0 0 0 4px rgba(255, 193, 7, 0.3); /* Soft glow on focus */
+  background: rgba(255, 255, 255, 0.15); /* Slightly more opaque on focus */
+}
+
+/* Submit Button: Gradient, interactive, and prominent */
+.btn-primary {
+  /* Use a gradient for a more modern button look */
+  background: linear-gradient(45deg, #ff9800, #ffb74d);
+  border: none;
+  padding: 12px 25px; /* More generous padding */
+  font-size: 1.1rem; /* Slightly larger font size */
+  font-weight: 600; /* Bolder text */
+  border-radius: 8px; /* Softer rounded corners */
+  color: #fff; /* White text */
+  cursor: pointer;
+  transition: all 0.3s ease; /* Smooth transition for all effects */
+  margin-top: 25px; /* More space above the button */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+.btn-primary:hover {
+  background: linear-gradient(45deg, #e68900, #ff9800); /* Darker gradient on hover */
+  transform: translateY(-3px); /* Slight lift on hover */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* More pronounced shadow on hover */
+}
+
+.btn-primary:active {
+  transform: translateY(0); /* Press down effect */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 30px;
+    border-radius: 12px;
+  }
+
+  .form-title {
+    font-size: 2rem;
+    margin-bottom: 25px;
+  }
+
+  .form-control,
+  .form-select {
+    padding: 10px 12px;
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+
+  .btn-primary {
+    padding: 10px 20px;
+    font-size: 1rem;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 25px;
+    border-radius: 10px;
+  }
+
+  .form-title {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+
+  .form-control,
+  .form-select {
+    padding: 8px 10px;
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+  }
+
+  .btn-primary {
+    padding: 8px 18px;
+    font-size: 0.95rem;
+    margin-top: 15px;
+  }
+}
