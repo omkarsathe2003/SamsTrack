@@ -25,11 +25,13 @@ public class SubjectController {
 	@Autowired
 	private SubjectService subjectService;
 
-	@PreAuthorize("hasRole('ADMIN')")
 	@GetMapping("/get-all-subjects")
-	public List<Subject> getAllSubjects() {
-	    return subjectService.getAllSubjects();
-	}
+public List<Subject> getAllSubjects() {
+
+    System.out.println("SubjectController reached");
+
+    return subjectService.getAllSubjects();
+}
 	
 	@PreAuthorize("hasRole('ADMIN')")
 	@PostMapping("/add-subject")

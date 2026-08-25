@@ -55,8 +55,11 @@ public class SecurityConfig {
 	            "/student/get-student-by-id/**",
 	            "/student/add-student",
 	            "/student/update-student"
-	    ).hasAnyRole("ADMIN", "FACULTY")
+                    ).hasAnyRole("ADMIN", "FACULTY")
 
+.antMatchers(
+        "/subject/get-all-subjects"
+).hasAnyRole("ADMIN", "FACULTY")
 	    .antMatchers(
 	            "/student/delete-student/**"
 	    ).hasRole("ADMIN")

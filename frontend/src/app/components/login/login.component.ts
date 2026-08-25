@@ -9,7 +9,10 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class LoginComponent {
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(
+    private userService: UserService,
+    private router: Router
+  ) {}
 
   user = {
     username: '',
@@ -18,26 +21,29 @@ export class LoginComponent {
 
   login() {
 
-  this.userService.login(this.user).subscribe((res: any) => {
+    this.userService.login(this.user).subscribe((res: any) => {
 
-    // Store JWT token
-    localStorage.setItem('token', res.token);
+      // Store JWT token
+      localStorage.setItem('token', res.token);
 
-    // Get logged-in user details
-    this.userService.getCurrentUser().subscribe((user) => {
+      // Get logged-in user details
+      this.userService.getCurrentUser().subscribe((user) => {
 
-      localStorage.setItem('user', user.username);
-      localStorage.setItem('role', user.role);
+        console.log('Logged-in user:', user);
+        console.log('Role:', user.role);
 
-      if (user.role === 'admin') {
-        this.router.navigateByUrl('admin-dashboard');
-      } else {
-        this.router.navigateByUrl('faculty-dashboard');
-      }
+        localStorage.setItem('user', user.username);
+        localStorage.setItem('role', user.role);
+
+        if (user.role && user.role.toUpperCase() === 'ADMIN') {
+          this.router.navigateByUrl('/admin-dashboard');
+        } else {
+          this.router.navigateByUrl('/faculty-dashboard');
+        }
+
+      });
 
     });
 
-  });
-
-}
+  }
 }

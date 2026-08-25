@@ -27,42 +27,73 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 	private CustomUserDetailsService customUserDetailsService;
 
 	@Override
-	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
-			throws ServletException, IOException {
+protected void doFilterInternal(
+        HttpServletRequest request,
+        HttpServletResponse response,
+        FilterChain filterChain)
+        throws ServletException, IOException {
 
-		String authorizationHeader = request.getHeader("Authorization");
+    String authorizationHeader = request.getHeader("Authorization");
 
-		String username = null;
-		String jwt = null;
+    String username = null;
+    String jwt = null;
 
-		// Check if JWT is present
-		if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
+    if (authorizationHeader != null &&
+            authorizationHeader.startsWith("Bearer ")) {
 
-			jwt = authorizationHeader.substring(7);
+        jwt = authorizationHeader.substring(7);
 
-			username = jwtUtil.extractUsername(jwt);
-		}
+        try {
+            username = jwtUtil.extractUsername(jwt);
 
-		// Authenticate user if not already authenticated
-		if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+            System.out.println("JWT received");
+            System.out.println("Username from JWT = " + username);
 
-			UserDetails userDetails =
-			        customUserDetailsService.loadUserByUsername(username);
+        } catch (Exception e) {
+            System.out.println("Invalid JWT: " + e.getMessage());
+        }
+    }
 
-			System.out.println("Username = " + userDetails.getUsername());
-			System.out.println("Authorities = " + userDetails.getAuthorities());
-			if (jwtUtil.validateToken(jwt, userDetails.getUsername())) {
+    if (username != null &&
+            SecurityContextHolder.getContext().getAuthentication() == null) {
 
-				UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
-						userDetails, null, userDetails.getAuthorities());
+        UserDetails userDetails =
+                customUserDetailsService.loadUserByUsername(username);
 
-				authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+        System.out.println("Username = " + userDetails.getUsername());
+        System.out.println("Authorities = " + userDetails.getAuthorities());
 
-				SecurityContextHolder.getContext().setAuthentication(authentication);
-				System.out.println("Authentication stored successfully");
-			}
-		}
+        try {
 
-		filterChain.doFilter(request, response);
-	}
+            if (jwtUtil.validateToken(jwt, userDetails.getUsername())) {
+
+                UsernamePasswordAuthenticationToken authentication =
+                        new UsernamePasswordAuthenticationToken(
+                                userDetails,
+                                null,
+                                userDetails.getAuthorities());
+
+                authentication.setDetails(
+                        new WebAuthenticationDetailsSource()
+                                .buildDetails(request));
+
+                SecurityContextHolder
+                        .getContext()
+                        .setAuthentication(authentication);
+
+                System.out.println("Authentication stored successfully");
+                System.out.println("FINAL AUTHORITIES = " +
+                        SecurityContextHolder
+                                .getContext()
+                                .getAuthentication()
+                                .getAuthorities());
+            }
+
+        } catch (Exception e) {
+            System.out.println("JWT validation failed: " + e.getMessage());
+        }
+    }
+
+    filterChain.doFilter(request, response);
+}
 }
